@@ -51,7 +51,7 @@ class Agent(object):
     # Returns an action: a list of length n_items, indicating prices this agent is posting for each item.
     def action(self, obs):
 
-        # For Part 1, new_buyer_covariates will simply be a single numeric float indicating the valuation the user has for the (single) item
+        # For Part 1, new_buyer_covariates will simply be a vector of length 1, containing a single numeric float indicating the valuation the user has for the (single) item
         # For Part 2, new_buyer_covariates will be a vector of length 3 that can be used to estimate demand from that user for each of the two items
         new_buyer_covariates, last_sale, profit_each_team = obs
         self._process_last_sale(last_sale, profit_each_team)
