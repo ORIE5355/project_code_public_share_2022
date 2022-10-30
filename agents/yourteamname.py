@@ -16,7 +16,7 @@ class Agent(object):
         # Complications: pickle should work with any machine learning models
         # However, this does not work with custom defined classes, due to the way pickle operates
         # TODO you can replace this with your own model
-        # self.filename = 'machine_learning_model/trained_model'
+        # self.filename = 'agents/yourteamname/trained_model'
         # self.trained_model = pickle.load(open(self.filename, 'rb'))
 
     def _process_last_sale(self, last_sale, profit_each_team):
