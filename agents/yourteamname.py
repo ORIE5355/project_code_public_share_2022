@@ -16,8 +16,8 @@ class Agent(object):
         # Complications: pickle should work with any machine learning models
         # However, this does not work with custom defined classes, due to the way pickle operates
         # TODO you can replace this with your own model
-        # self.filename = 'agents/yourteamname/trained_model'
-        # self.trained_model = pickle.load(open(self.filename, 'rb'))
+        self.filename = 'agents/yourteamname/trained_model'
+        self.trained_model = pickle.load(open(self.filename, 'rb'))
 
     def _process_last_sale(self, last_sale, profit_each_team):
         # print("last_sale: ", last_sale)
@@ -58,9 +58,11 @@ class Agent(object):
 
         # Potentially useful for Part 1 --
         # Currently output is just a deterministic price for the item, but students are expected to use the valuation (inside new_buyer_covariates) and history of prices from each team to set a better price for the item
-        return [3]
+        if self.project_part == 1:
+            return [3]
 
         # Potentially useful for Part 2 -- 
         # TODO Currently this output is just a deterministic 2-d array, but the students are expected to use the buyer covariates to make a better prediction
         # and to use the history of prices from each team in order to set prices for each item.
-        # return self.trained_model.predict(np.array([1, 2, 3]).reshape(1, -1))[0] + random.random()
+        if self.project_part == 2:
+            return self.trained_model.predict(np.array([1, 2, 3]).reshape(1, -1))[0] + random.random()
